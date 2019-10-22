@@ -25,7 +25,7 @@ endwhile;
 ?>
 
 
-<div id="page">
+
     <?php
     $img = ci_setting('ci_sidebar_image');
     $style = '';
@@ -64,13 +64,56 @@ endwhile;
                 <?php
                 endwhile;
                 ?>
-                <li  class="menu-item itemlist menu-item-type-post_type menu-item-object-page"> Contact </li>
+                <li  class="menu-item itemlist menu-item-type-post_type menu-item-object-page"> <a href="<?php  echo get_page_link(1920) ?>">  Contact</a>  </li>
+                <li  class="menu-item itemlist menu-item-type-post_type menu-item-object-page"> <a href="<?php  echo get_page_link(140) ?>">  A propos</a>  </li>
             </ul>
 
         </nav>
     </div>
 
     <script>
+
+        document.addEventListener("DOMContentLoaded", function (e) {
+            var els = document.getElementsByClassName("active");
+            var id = els.item(0).id;
+            var value = els.item(0).getAttributeNode('value').value;
+            var values = value.split(',');
+
+
+            jQuery(document).ready(function () {
+                jQuery("#menu-social-medias > li > a").css("background-color", values[0]);
+                jQuery("#menu-social-medias > li > a").hover(function () {
+                    jQuery(this).css("background-color", values[1]);
+                }, function () {
+                    jQuery(this).css("background-color", values[0]);
+                });
+            });
+
+            if (document.addEventListener) {
+                document.addEventListener("mousewheel", MouseWheelHandle, false);
+                document.addEventListener("DOMMouseScroll", MouseWheelHandle, false);
+            } else {
+                document.attachEvent("onmousewheel", MouseWheelHandle);
+            }
+
+            function MouseWheelHandle(e) {
+                els = document.getElementsByClassName("active");
+                id = els.item(0).id;
+                value = els.item(0).getAttributeNode('value').value;
+                values = value.split(',');
+
+                jQuery(document).ready(function () {
+                    jQuery("#menu-social-medias > li > a").css("background-color", values[0]);
+                    jQuery("#menu-social-medias > li > a").hover(function () {
+                        jQuery(this).css("background-color", values[1]);
+                    }, function () {
+                        jQuery(this).css("background-color", values[0]);
+                    });
+                });
+            }
+
+        });
+
 
 
 
@@ -86,6 +129,9 @@ endwhile;
                 jQuery(this).css("background-color", val);
             });
 
+            let targetblank= document.querySelectorAll(".menu-image-title-after");
+            jQuery(targetblank).attr('target', '_blank');
+
         });
 
 
@@ -100,9 +146,8 @@ endwhile;
                 jQuery(listitem).removeClass("itemlist");
                 listitem = document.querySelector(".itemlist");
             }
+        }, 300);
 
-
-        }, 400);
 
 
 

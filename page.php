@@ -1,13 +1,16 @@
-<?php get_header(); ?>
+<div id="page">
+
+
+<?php get_header("portfolio"); ?>
 
 <div class="content-wrap">
 	<main id="content" role="main">
 		<div class="container">
-			<div class="row">
+
 				<div class="col-xs-12">
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						<article id="entry-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
-							<div class="row">
+
 								<div class="col-md-8 col-md-push-2">
 									<?php if ( has_post_thumbnail() ) : ?>
 										<figure class="entry-thumb">
@@ -27,10 +30,12 @@
 							</div>
 						</article>
 					<?php endwhile; endif; ?>
-				</div>
+			
 			</div>
-		</div>
+
 	</main>
 </div>
 
 <?php get_footer(); ?>
+
+</div>

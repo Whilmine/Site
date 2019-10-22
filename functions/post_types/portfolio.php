@@ -72,6 +72,8 @@ function ci_portfolio_score_meta_box( $object, $box ) {
 	?><p><?php _e('You can display your work in three different layouts: 1) Image array, 2) Standard image slideshow, 3) Fullwidth image slideshow', 'ci_theme'); ?></p><?php
 	$opts = array(
 		'standard' => __('Image Array', 'ci_theme'),
+        'custom_animals' => __('Custom', 'ci_theme'),
+        'winter' => __('winter', 'ci_theme'),
 		'standard-flex' => __('Image Slideshow', 'ci_theme'),
 		'fullwidth-flex' => __('Fullwidth Slideshow', 'ci_theme')
 	);

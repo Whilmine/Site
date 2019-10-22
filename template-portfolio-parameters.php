@@ -21,6 +21,8 @@ endwhile;
 
         <main id="content" role="main">
             <div class="container">
+
+                <?php if ( $section == "graphisme"){ } else{ ?>
                 <div class="row joined infinite">
                     <?php
                     global $paged;
@@ -38,24 +40,25 @@ endwhile;
                     $wp_query = new WP_Query($args);
                     ?>
                     <?php if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
-                     $dumb = get_field("cliquable");
+                     $trueitem = get_field("cliquable");
+                        $truelink = get_field("link");
 
 
                      ?>
                         <article class="item <?php ci_e_setting('portfolio_category_columns');?> masked"
                                  style="background: url('<?php echo ci_get_featured_image_src('square_thumb'); ?>') center center no-repeat; background-size: cover;">
-                            <?php echo $dumb ?>
-                            <a href="<?php the_permalink(); ?>">
+
+                            <a  href="<?php if ($trueitem == true) {the_permalink();} else {echo $truelink;}?> ">
                                 <p class="item-title"><?php the_title(); ?></p>
                             </a>
                         </article>
                     <?php endwhile; endif; ?>
                 </div>
 
-
                 <?php
                 wp_reset_postdata();
                 $wp_query = $temp;
+                }
                 ?>
             </div>
         </main>

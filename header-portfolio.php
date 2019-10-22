@@ -25,7 +25,7 @@ endwhile;
 ?>
 
 
-<div id="page">
+<div >
     <?php
     $img = ci_setting('ci_sidebar_image');
     $style = '';
@@ -65,7 +65,8 @@ endwhile;
                 <?php
                 endwhile;
                 ?>
-                <li  class="menu-item itemlist menu-item-type-post_type menu-item-object-page"> Contact </li>
+                <li  class="menu-item itemlist menu-item-type-post_type menu-item-object-page"> <a href="<?php  echo get_page_link(1920) ?>">  Contact</a>  </li>
+                <li  class="menu-item itemlist menu-item-type-post_type menu-item-object-page"> <a href="<?php  echo get_page_link(140) ?>">  A propos</a>  </li>
             </ul>
 
         </nav>
@@ -86,6 +87,8 @@ endwhile;
             }, function () {
                 jQuery(this).css("background-color", val);
             });
+            let targetblank= document.querySelectorAll(".menu-image-title-after");
+            jQuery(targetblank).attr('target', '_blank');
 
         });
 

@@ -37,20 +37,12 @@
                     <div class="full-height-content text-content flex-justify-center flex-align-center">
                         <div class="entry-content">
                             <p class="title"> Bonjour et bienvenue!</p>
-                            <p>Je suis Claire et je suis</p>
-                            <h3 style="color: <?php echo $typo_code?>">
-                            <?php
-                            the_title();
-                            echo '<br></h3>'; ?>
+                            <p>Je m'appelle Claire Delépée et je suis une</p>
+                            <h2 style="color: <?php echo $typo_code?>"><?php the_title();?></h2>
+                           <?php echo '<p> basée à Nantes. <br>'; ?>
+                            <?php the_content(); ?></p>
 
-                            <p><?php the_content(); ?>
-                            </p>
-                            <div style=" margin-top: 20px">
-                            <p>
-                                Vous débutez un projet, vous cherchez une <?php the_title()?>, ou vous avez une question ?
-                                N’hésitez pas à me contacter :)
-                            </p>
-                            </div>
+
                         </div>
                     </div>
 
@@ -120,7 +112,7 @@
 
             setTimeout(function(){
                window.location =   jQuery('#portfolio_link').attr('href');
-            },10)
+            },50)
         }
         jQuery('#portfolio_link').click(function (e) {
             e.preventDefault();
