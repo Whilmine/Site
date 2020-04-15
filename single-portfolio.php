@@ -77,7 +77,7 @@ endif;
                             } ?>
 
                             <br>
-                            <?php echo '<a class="category-link" href="https://www.mayroo.fr/portfolio/?_='.$category.'">';?>
+                            <?php echo '<a class="category-link" href="https://www.claire-delepee.fr/portfolio/?_='.$category.'">';?>
                             <svg fill="<? echo $colorcode ?>" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  viewBox="0 0 48.1 32.9" style="enable-background:new 0 0 48.1 32.9;" xml:space="preserve">
 <path d="M46.1,12.6c-0.1-0.6-0.6-1.1-1.2-1.1c-6.8-0.3-13.6-0.1-20.4,0c-0.8,0-1.4-0.6-1.3-1.4c0.2-2.9,0.3-5.8,0.2-8.7
@@ -127,7 +127,7 @@ endif;
             </div>
         </div>
 
-        <div class="col-xs-9 image-wrapper">
+        <div class="col-md-9 image-wrapper">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <?php
                 $terms = get_the_terms($post->ID, 'portfolio-category');

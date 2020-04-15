@@ -480,24 +480,65 @@ ul li a, #menu-nav ul li a, #menu-nav ul li {
 }
 
 #home-navigation #menu-nav {
-   margin: auto auto 0 auto;
+    margin: auto auto 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 #home-navigation.portfolio #menu-nav{
-    position: absolute;
-    background-color: black;
+    position: fixed;
     width: 100px;
     right: 0;
+    top: 15px;
+    height: 40px;
+    transition: height 1s ease-in;
+    z-index: 4;
+    border-bottom: 8px black solid;
+}
+#home-navigation.portfolio #menu-nav:hover{
+    overflow-y: auto;
+    height: 300px;
+    border: none;
+}
+#home-navigation.portfolio #menu-nav:hover:after, #home-navigation.portfolio #menu-nav:hover:before{
+    background-color: transparent;
+}
+#home-navigation.portfolio #menu-nav:hover ul{
+height: auto;
+}
+#home-navigation.portfolio #menu-nav:after,#home-navigation.portfolio #menu-nav:before {
+    content: "";
+    display: block;
+    background-color: black;
+    width: 100%;
+    height: 8px;
+    border-radius: 15px;
+}
+#home-navigation.portfolio #menu-nav:after{
+    margin-bottom: -15px;
+
 }
 
+
 @media screen and (min-width: 768px) {
+    #home-navigation.portfolio #menu-nav {
+        border: none;
+        height: auto;
+        position: relative;
+        background-color: transparent;
+        width: auto;
+        right: initial;
+        overflow: auto;
+    }
     #home-navigation.portfolio #menu-nav ul{
         flex-direction: column;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    }
+    #home-navigation.portfolio #menu-nav:after,#home-navigation.portfolio #menu-nav:before{
+        display: none;
     }
 }
 
@@ -549,6 +590,12 @@ ul li a, #menu-nav ul li a, #menu-nav ul li {
     list-style: none;
     flex-direction: column;
     padding: 0;
+    height: 0;
+}
+@media screen and (min-width: 768px) {
+    #home-navigation #menu-nav ul, #home-navigation.page #menu-nav ul {
+        height: auto;
+    }
 }
 
 #home-navigation .menu-social-medias-container ul li a, #home-navigation.page .menu-social-medias-container ul li a {
@@ -871,14 +918,18 @@ text-transform: capitalize;
 .single-porfolio .image-wrapper{
     display: flex;
     justify-content: center;
+    padding: 0;
+    height: 40px;
+    overflow: hidden;
   }
-
-
 
 @media screen and (min-width: 768px){
     .single-porfolio .image-wrapper{
         margin-left: 28vw;
+        padding: initial;
         padding-top: 7vh;
+        overflow:auto;
+        height: auto;
     }
     .single-porfolio .grid{
         display: grid;
@@ -1007,11 +1058,14 @@ max-width:600px;
 }
 
 .single-porfolio #content {
-    margin: 0 0 0 50px;
+    margin: auto;
+    width: 80%;
 }
 @media screen and (min-width: 768px) {
     .single-porfolio #content{
+        width: auto;
         display: flex;
+        margin: 0 0 0 50px;
     }
 }
 
@@ -1258,12 +1312,7 @@ max-width:600px;
     #home-navigation #menu-nav {
         margin: auto;
     }
-    #home-navigation.portfolio #menu-nav{
-        position: relative;
-        background-color: transparent;
-        width: auto;
-        right: initial;
-    }
+
     #home-navigation .wrapper{
         display: block;
     }
